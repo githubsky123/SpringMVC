@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+	
+	<!-- spring默认的方式是BeanNameUrlHandlerMapping 去解读-->
+	<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean>
+	<!-- 通过bean的name 映射文件 -->
+	<!-- bean的名称也就是一个url  通过bean的Name完成映射-->
+	<bean name="/welcome.html" class="com.controller.WelcomeController"/>
+	<!-- 创建视图解析器  -->
+	<!-- 指明具体要访问的视图的地址位置  -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- 前缀 -->
+		<property name="prefix" value="/WEB-INF/jsp/"/>
+		<!-- 后缀 -->
+		<property name="suffix" value=".jsp"/>
+	</bean>
+</beans>
